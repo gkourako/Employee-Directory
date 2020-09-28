@@ -1,0 +1,80 @@
+import React from 'react';
+
+function employees() {
+  return (
+    [
+      {
+        "id": 1458,
+        "First": "George",
+        "Last": "Kourakos",
+        "Position": "CVO",
+        "email": "gkourako@gmail.com"
+      },
+      {
+        "id": 1459,
+        "First": "Mark",
+        "Last": "Otto",
+        "Position": "Developer",
+        "email": "markotto@gmail.com"
+      },
+      {
+        "id": 1460,
+        "First": "Jacob",
+        "Last": "Thronton",
+        "Position": "Developer",
+        "email": "jacobthornton@gmail.com"
+      },
+      {
+        "id": 1461,
+        "First": "Larry",
+        "Last": "Somerville",
+        "Position": "CFO",
+        "email": "larrysomerville@gmail.com"
+      },
+      {
+        "id": 1462,
+        "First": "Lawrence",
+        "Last": "Prankaman",
+        "Position": "CTO",
+        "email": "macdaddy@gmail.com"
+      },
+      {
+        "id": 1463,
+        "First": "Soleman",
+        "Last": "Sayeed",
+        "Position": "CEO",
+        "email": "solemansayeed@gmail.com"
+      },
+      {
+        "id": 1464,
+        "First": "Caleb",
+        "Last": "Crum",
+        "Position": "Cyber Security Operations",
+        "email": "ccrum@gmail.com"
+      },
+      {
+        "id": 1465,
+        "First": "Ryan",
+        "Last": "Somerville",
+        "Position": "CCCO",
+        "email": "ryansomerville@gmail.com"
+      },
+      {
+        "id": 1466,
+        "First": "Andrew",
+        "Last": "Lambropoulos",
+        "Position": "Development Operations",
+        "email": "alambrop7@gmail.com"
+      },
+      {
+        "id": 1467,
+        "First": "Chuck",
+        "Last": "Jeanne",
+        "Position": "Risk Management Lead",
+        "email": "cjeanne@gmail.com"
+      }
+    ]
+  )
+}
+
+export default employees
