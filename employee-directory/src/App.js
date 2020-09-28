@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-// import employees from './employees'
+import employees from './employees'
 
 
 
 function App(props) {
+ 
   return  (
     <div className="App">
     <nav class="navbar navbar-light bg-dark">
@@ -26,6 +27,14 @@ function App(props) {
               </tr>
             </thead>
             <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>{employees()[0].First}</td>
+                <td>{employees()[0].Last}</td>
+                <td>#1458</td>
+                <td>Chief Positivity Officer</td>
+                <td>kworthy@gmail.com</td>
+              </tr>
               <tr>
                 <th scope="row">1</th>
                 <td>Kristian</td>
