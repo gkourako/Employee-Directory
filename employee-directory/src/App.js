@@ -1,127 +1,104 @@
 import React from 'react';
 import './App.css';
-import employees from './employees'
+import employees from './employees.json';
 
 
 
-function App(props) {
- 
-  return  (
-    <div className="App">
-    <nav class="navbar navbar-light bg-dark">
-      <a class="navbar-brand" href="">Navbar</a>
-    </nav>
-      <div className="container">
-        <div className="row">
+class App extends React.Component {
 
-          <table class="table">
-            <thead>
-              <h3>Employees</h3>
-              <tr>
-                <th scope="col">List Item</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">ID</th>
-                <th scope="col">Position</th>
-                <th scope="col">Email</th>
-              </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>{employees()[0].First}</td>
-                <td>{employees()[0].Last}</td>
-                <td>#1458</td>
-                <td>Chief Positivity Officer</td>
-                <td>kworthy@gmail.com</td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Kristian</td>
-                <td>Worthy</td>
-                <td>#1458</td>
-                <td>Chief Positivity Officer</td>
-                <td>kworthy@gmail.com</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>#1459</td>
-                <td>Developer</td>
-                <td>jacobthornton@gmail.com</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>Somerville</td>
-                <td>#1460</td>
-                <td>Chief Financial Officer</td>
-                <td>larrysomerville@gmail.com</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Lawrence</td>
-                <td>Parthum</td>
-                <td>#1461</td>
-                <td>Chief Technology Officer</td>
-                <td>macdaddy@gmail.com</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Soleman</td>
-                <td>Sayeed</td>
-                <td>#1462</td>
-                <td>Chief Executive Officer</td>
-                <td>solemansayeed@gmail.com</td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>Caleb</td>
-                <td>Crum</td>
-                <td>#1464</td>
-                <td>Cyber Security Operations</td>
-                <td>ccrum@gmail.com</td>
-              </tr>
-              <tr>
-                <th scope="row">7</th>
-                <td>Ryan</td>
-                <td>Somerville</td>
-                <td>#1465</td>
-                <td>Chief Company Culture Officer</td>
-                <td>ryansomerville@gmail.com</td>
-              </tr>
-              <tr>
-                <th scope="row">8</th>
-                <td>Andrew</td>
-                <td>Lambropoulos</td>
-                <td>#1466</td>
-                <td>Development Operations</td>
-                <td>alambro7@gmail.com</td>
-              </tr>
-              <tr>
-                <th scope="row">9</th>
-                <td>Chuck</td>
-                <td>Jeanne</td>
-                <td>#1467</td>
-                <td>Risk Management Lead</td>
-                <td>cjeanne@gmail.com</td>
-              </tr>
-              <tr>
-                <th scope="row">10</th>
-                <td>George</td>
-                <td>Kourakos</td>
-                <td>#1468</td>
-                <td>CVO</td>
-                <td>gkourako@gmail.com</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  
-  );
+  state = {
+    employeeList: employees,
+    sortOrder: ""
+  }
+  handleSort = (whatToSort) => {
+    console.log("this works")
+    let newSort
+    if (this.state.sortOrder !== "des") {
+      newSort = this.state.employeeList.sort((a, b) => {
+        return a[whatToSort] - b[whatToSort];
+      }
+      );
+    }
+    else {
+      newSort = this.state.employeeList.sort((a, b) => {
+        return b[whatToSort] - a[whatToSort];
+      }
+      )
+    }
+    console.log("tst")
+    const newSortOrder = this.state.sortOrder === "des" ? "asc" : "des"
+    this.setState({ employeeList: newSort, sortOrder: newSortOrder })
+  }
+  newHandleSort = (whatToSort2) => {
+    console.log("this works")
+    const newSort = this.state.employeeList.sort((a, b) => {
+
+      var nameA = a[whatToSort2].toUpperCase(); // ignore upper and lowercase
+      var nameB = b[whatToSort2].toUpperCase(); // ignore upper and lowercase
+      if (this.state.sortOrder !== "des") {
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      } else {
+        if (nameA < nameB) {
+          return 1;
+        }
+        if (nameA > nameB) {
+          return -1;
+        }
+        return 0;
+      }
+    });
+    const newSortOrder = this.state.sortOrder === "des" ? "asc" : "des"
+    this.setState({ employeeList: newSort, sortOrder: newSortOrder })
+  };
+
+  render() {
+    return (
+      <div className="App" >
+        <nav className="navbar navbar-dark bg-dark">
+          <a className="navbar-brand text-center" href="">Dyna Corp</a>
+        </nav>
+        < div className="container" >
+          <div className="row">
+            <table className="table">
+              <thead>
+                <h3>Employees</h3>
+                <tr>
+                  <th scope="col" onClick={() => this.handleSort("id")}>ID</th>
+                  <th scope="col" onClick={() => this.newHandleSort("First")}>First</th>
+                  <th scope="col" onClick={() => this.newHandleSort("Last")}>Last</th>
+                  <th scope="col" onClick={() => this.newHandleSort("Position")}>Position</th>
+                  <th scope="col" onClick={() => this.newHandleSort("email")}>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.employeeList.map(employees => (
+
+                  <tr key={employees.id}>
+
+                    <th scope="row">{employees.id}</th>
+                    <td>{employees.First}</td>
+                    <td>{employees.Last}</td>
+                    <td>{employees.Position}</td>
+                    <td>{employees.email}</td>
+                  </tr>
+                ))}
+
+
+
+              </tbody>
+            </table>
+          </div>
+        </div >
+      </div >
+
+    );
+  }
 }
 
 export default App;

@@ -1,7 +1,4 @@
-import React from 'react';
 
-function employees() {
-  return (
     [
       {
         "id": 1458,
@@ -11,7 +8,7 @@ function employees() {
         "email": "gkourako@gmail.com"
       },
       {
-        "id": 1459,
+        "id": 1469,
         "First": "Mark",
         "Last": "Otto",
         "Position": "Developer",
@@ -33,10 +30,10 @@ function employees() {
       },
       {
         "id": 1462,
-        "First": "Lawrence",
-        "Last": "Prankaman",
+        "First": "Mike",
+        "Last": "Jones",
         "Position": "CTO",
-        "email": "macdaddy@gmail.com"
+        "email": "mikejones@gmail.com"
       },
       {
         "id": 1463,
@@ -74,7 +71,3 @@ function employees() {
         "email": "cjeanne@gmail.com"
       }
     ]
-  )
-}
-
-export default employees
