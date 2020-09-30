@@ -60,14 +60,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" >
-        <nav className="navbar navbar-dark bg-dark">
-          <a className="navbar-brand text-center" href="">Dyna Corp</a>
+        <nav className="navbar navbar-dark bg-dark text-center">
+          <a className="navbar-brand " href=""><h1 className="display-1">Dyna Corp</h1></a>
         </nav>
+        <br></br>
         < div className="container" >
           <div className="row">
-            <table className="table">
+            <table className="table shadow p-3 mb-5 bg-white rounded">
               <thead>
-                <h3>Employees</h3>
+                <h4 className="display-4">Employees</h4>
                 <tr>
                   <th scope="col" onClick={() => this.handleSort("id")}>ID</th>
                   <th scope="col" onClick={() => this.newHandleSort("First")}>First</th>
